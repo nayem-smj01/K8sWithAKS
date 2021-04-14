@@ -29,18 +29,18 @@ az network public-ip create --resource-group <REPLACE-OUTPUT-RG-FROM-PREVIOUS-CO
 # REPLACE - Create Public IP: Replace Resource Group value
 az network public-ip create --resource-group MC_april13_ns_rg_naeem-aks-april13_centralindia --name myAKSPublicIPForIngress --sku Standard --allocation-method static --query publicIp.ipAddress -o tsv
 ```
--- o/p: 20.198.97.174
+-- o/p: 10.98.197.154
 
 - Make a note of Static IP which we will use in next step when installing Ingress Controller
 ```
 # Make a note of Public IP created for Ingress
-20.198.97.174
+10.98.197.154
 ```
 
 ## Step-03: Install Ingress Controller
 ```
-# Install Helm3 (if not installed)
-brew install helm
+# Install Helm3 (if not installed. Make sure choco is installed. https://docs.chocolatey.org/en-us/choco/setup)
+choco install kubernetes-helm
 
 # Create a namespace for your ingress resources
 kubectl create namespace ingress-basic
